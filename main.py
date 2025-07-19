@@ -7,6 +7,7 @@ CHALLENGE INSTRUCTIONS:
 2. Complete the /api/categories endpoint implementation (currently incomplete)
 3. Debug and fix the /api/demographics endpoint (contains multiple bugs)
 
+Goto line 113 to start working on the first challenge.
 Good luck! May the best data scientist win! 🚀
 """
 
@@ -105,6 +106,10 @@ async def startup_event():
     """Initialize application by loading sales data."""
     load_sales_data()
 
+
+# ===============================================================================
+# API Endpoints start here
+# ===============================================================================
 @app.post("/api/get-top-month")
 def get_top_selling_products_by_month(request: MonthRequest) -> TopMonthResponse:
     """
