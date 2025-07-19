@@ -1,4 +1,4 @@
-# 🏆 E-commerce Analytics API - Hackathon Challenge
+# 🏆 CODE-A-THON
 
 Welcome to the **E-commerce Analytics API Hackathon**! Test your data science and debugging skills by completing three challenging endpoints.
 
