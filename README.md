@@ -213,24 +213,106 @@ curl http://localhost:8000/api/demographics
 - Ensure aggregation columns align with assignments
 - Test each section independently
 
-## 🚀 Deployment to Render
 
-### Option 1: Manual Deployment (Recommended for beginners)
+## 🚀 Pushing Your Code to GitHub
 
-1. **Create Render Account**: Sign up at [render.com](https://render.com)
-2. **Connect GitHub**: Link your GitHub account to Render
-3. **Create Web Service**: 
-   - Click "New" → "Web Service"
-   - Connect your repository
-   - Configure the service:
-     - **Build Command**: `pip install -r requirements.txt`
-     - **Start Command**: `uvicorn solution_script:app --host 0.0.0.0 --port $PORT`
-     - **Python Version**: 3.9+
-4. **Deploy**: Click "Create Web Service"
+After making changes, you need to push your code to your forked repository on GitHub.
 
-### Option 2: Using render.yaml (Advanced)
+### First Time Push
 
-If you want to use Infrastructure as Code, create a `render.yaml` file:
+```bash
+git add .
+git commit -m "Your commit message"
+git push -u origin main
+```
+
+### Subsequent Pushes
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+## 🚀 Deploying to Render
+
+### 🔹 Step 1: Access Render Dashboard
+
+**Go to** [https://dashboard.render.com](https://dashboard.render.com) and **log in** with your GitHub account.
+
+---
+
+### 🔹 Step 2: Start a New Web Service
+
+* **First-time users:** After logging in, you'll land directly on the *"Create a New Service"* page.
+  → Click **"Web Service"**.
+
+* **Returning users:** On the Render dashboard, go to the top-right and click **`+ Add new`**, then choose **"Web Service"**.
+
+---
+
+### 🔹 Step 3: Connect Your GitHub Repository
+
+At the top of the "Configure and Deploy Your New Web Service" page:
+
+* Click the **"Credentials"** dropdown next to the search bar.
+* Under **Connected Deployment Credentials**, click your **GitHub username**.
+* Click **"Configure GitHub"**.
+
+  * Under *Repository Access*, choose **"Only select repositories"**.
+  * From the dropdown, **select `codeathon`** and click **Save**.
+
+Now you'll see `codeathon` appear in the repository dropdown.
+→ Select it.
+
+---
+
+### 🔹 Step 4: Configure the Service
+
+* In the **Name** field, replace the default with a custom name that includes **your KahootQuiz username** (e.g., `codeathon-yourname`).
+* Scroll down to **"Instance Type"** and select **Free**.
+* Just above that, in **"Start Command"**, paste the following:
+
+  ```
+  uvicorn main:app --host 0.0.0.0 --port $PORT
+  ```
+
+---
+
+### 🔹 Step 5: Deploy
+
+* Scroll to the bottom and click **"Create Web Service"** or **"Deploy Web Service"**.
+
+Render will now build and deploy your app. This may take a minute or two. Once it's live, you'll get a URL you can visit to see your app in action.
+
+---
+
+### 🔄 Redeploying & Auto-Deploy on Commit
+
+- **Auto-Deploy:**  
+  Render will automatically redeploy your service every time you push changes to your connected GitHub repository.  
+  1. Make your code changes locally.
+  2. Commit and push:
+     ```sh
+     git add .
+     git commit -m "Describe your changes"
+     git push
+     ```
+  3. Render will detect the new commit and redeploy automatically.
+
+- **Manual Redeploy:**  
+  If you want to force a redeploy without pushing new commits:
+  1. Go to your service dashboard on [render.com](https://render.com/).
+  2. Click your service (e.g., `codeathon-yourname`).
+  3. Click the **Manual Deploy** button and select **Deploy latest commit**.
+
+### Alternative: Using render.yaml (Advanced)
+
+> **Note:**  
+> A `render.yaml` file is already included in this repository.  
+> You do **not** need to create it yourself.
+
+If you want to use Infrastructure as Code, the provided `render.yaml` file will be used automatically by Render:
 
 ```yaml
 services:
@@ -255,10 +337,6 @@ services:
 - You need consistent deployment settings
 - You're deploying multiple services
 - You want to version control your deployment configuration
-
-### 3. Environment Variables
-
-No additional environment variables needed for this challenge.
 
 ## 📚 Documentation References
 
@@ -315,4 +393,4 @@ Good luck, and may the best data scientist win! 🚀
 
 ---
 
-**Happy Coding!** 🎉
+**Happy Coding!** 🎉s
