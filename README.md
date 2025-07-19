@@ -1,11 +1,11 @@
 # 🏆 CODE-A-THON
 
-Welcome to the **E-commerce Analytics API Hackathon**! Test your data science and debugging skills by completing three challenging endpoints.
+Welcome to the **Code-a-thon**! Test your data science and debugging skills by completing three challenging endpoints.
 
 ## 🎯 Challenge Overview
 
 Your mission is to fix and complete three API endpoints:
-1. **`POST /api/get-top-month`** - Modify to return TOP 5 products (Easy)
+1. **`POST /api/top-product`** - Modify to return TOP 5 products (Easy)
 2. **`GET /api/categories`** - Complete the implementation (Medium) 
 3. **`GET /api/demographics`** - Debug multiple bugs (Hard)
 
@@ -95,13 +95,13 @@ curl http://localhost:8000/api/data-info
 
 ## 📋 Challenge Details & API Endpoints
 
-### 🎯 Challenge 1: `/api/get-top-month` (Easy - 20 points)
+### 🎯 Challenge 1: `/api/top-product` (Easy - 20 points)
 
 **Task**: Modify to return TOP 5 products instead of TOP 3
 
 #### Request:
 ```bash
-curl -X POST "http://localhost:8000/api/get-top-month" \
+curl -X POST "http://localhost:8000/api/top-product" \
      -H "Content-Type: application/json" \
      -d '{"month": "2024-03"}'
 ```

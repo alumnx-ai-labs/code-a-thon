@@ -3,7 +3,7 @@ E-commerce Analytics API - Hackathon Challenge
 A FastAPI application providing comprehensive analytics for e-commerce transactions.
 
 CHALLENGE INSTRUCTIONS:
-1. Implement the /api/get-top-month endpoint to return TOP 5 selling products (currently returns top 3)
+1. Implement the /api/top-product endpoint to return TOP 5 selling products (currently returns top 3)
 2. Complete the /api/categories endpoint implementation (currently incomplete)
 3. Debug and fix the /api/demographics endpoint (contains multiple bugs)
 
@@ -110,7 +110,7 @@ async def startup_event():
 # ===============================================================================
 # API Endpoints start here
 # ===============================================================================
-@app.post("/api/get-top-month")
+@app.post("/api/top-product")
 def get_top_selling_products_by_month(request: MonthRequest) -> TopMonthResponse:
     """
     CHALLENGE 1: Modify this endpoint to return TOP 5 selling products instead of top 3
